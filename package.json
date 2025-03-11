@@ -1,0 +1,19 @@
+{
+  "name": "betaheads-stats-web",
+  "version": "1.0.0",
+  "description": "web view of betaheads statistic",
+  "main": "app.js",
+  "devDependencies": {
+    "nodemon": "3.1.9"
+  },
+  "dependencies": {
+    "dotenv": "16.4.7",
+    "express": "^4.21.2",
+    "express-handlebars": "^8.0.1"
+  },
+  "scripts": {
+    "dev": "nodemon app",
+    "start": "node app"
+  },
+  "author": "mishavolkov"
+}
