@@ -1,5 +1,6 @@
 const express = require('express');
 const { engine } = require('express-handlebars');
+const { globalErrorMiddleware, errorHandler } = require('./middelwares/error-handler');
 const path = require('path');
 
 const app = express();
@@ -20,7 +21,14 @@ app.get('/', (req, res) => {
   res.render('home');
 });
 
-app.get('*', (req, res) => res.sendStatus(404));
+app.get(
+  '*',
+  errorHandler(() => {
+    throw { status: 404, message: 'Page not found' };
+  })
+);
+
+app.use(globalErrorMiddleware);
 
 app.listen(httpPort, () => {
   console.log(`Server listen: http://localhost:${httpPort}`);
