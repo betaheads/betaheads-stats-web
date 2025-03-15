@@ -1,6 +1,6 @@
 const express = require('express');
 const { engine } = require('express-handlebars');
-const { globalErrorMiddleware, errorHandler } = require('./middelwares/error-handler');
+const { globalErrorMiddleware, errorHandler } = require('./middlewares/error-handler');
 const path = require('path');
 
 const app = express();

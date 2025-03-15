@@ -7,14 +7,18 @@
     "nodemon": "3.1.9"
   },
   "dependencies": {
+    "bootstrap": "3.4.1",
     "dotenv": "16.4.7",
     "express": "4.21.2",
     "express-handlebars": "8.0.1",
+    "jquery": "1.12.4",
     "mysql2": "3.13.0"
   },
   "scripts": {
     "dev": "nodemon app",
-    "start": "node app"
+    "start": "node app",
+    "build": "npm run copy-bootstrap",
+    "copy-bootstrap": "node scripts/copy-bootstrap"
   },
   "author": "mishavolkov"
 }

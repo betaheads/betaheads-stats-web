@@ -1,5 +1,5 @@
 const { getUserFullStatsData } = require('../db/repository');
-const { LocalError } = require('../middelwares/error-handler');
+const { LocalError } = require('../middlewares/error-handler');
 
 async function getUserFullStats(username) {
   const userStats = await getUserFullStatsData(username);
