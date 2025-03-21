@@ -1,11 +1,12 @@
 const express = require('express');
 const { engine } = require('express-handlebars');
-const { globalErrorMiddleware, errorHandler } = require('./middlewares/error-handler');
+const { globalErrorMiddleware, errorHandler, LocalError } = require('./middlewares/error-handler');
 const path = require('path');
 
 const app = express();
 
 const config = require('./config/env');
+const { playerRouter } = require('./routes/player-router');
 
 const httpPort = config.httpPort;
 
@@ -17,6 +18,8 @@ app.use(express.static(path.resolve(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use(playerRouter);
+
 app.get('/', (req, res) => {
   res.render('home');
 });
@@ -24,7 +27,7 @@ app.get('/', (req, res) => {
 app.get(
   '*',
   errorHandler(() => {
-    throw { status: 404, message: 'Page not found' };
+    throw new LocalError(404, 'Page not found');
   })
 );
 

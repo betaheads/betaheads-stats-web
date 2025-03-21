@@ -1,3 +1,4 @@
+const { toReadableName } = require('../domain/formatters/block-name-formatter');
 const db = require('./database');
 
 async function getUserFullStatsData(username) {
@@ -22,18 +23,18 @@ async function getUserFullStatsData(username) {
   }
 
   const playedMs = results[0]?.played_ms ?? 0;
-  const username = results[0].name;
+  const playername = results[0].name;
   const blockStats = results.map((row) => ({
-    block: row.block,
-    break_count: row.break_count,
-    place_count: row.place_count,
+    block: toReadableName(row.block),
+    breakCount: row.break_count,
+    placeCount: row.place_count,
   }));
 
-  const totalBreak = results.reduce((sum, row) => sum + row.break_count, 0);
-  const totalPlace = results.reduce((sum, row) => sum + row.place_count, 0);
+  const totalBreak = results.reduce((sum, row) => sum + parseInt(row.break_count), 0);
+  const totalPlace = results.reduce((sum, row) => sum + parseInt(row.place_count), 0);
 
   return {
-    username,
+    username: playername,
     playedMs,
     totalBreak,
     totalPlace,

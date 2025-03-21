@@ -9,6 +9,7 @@ const config = {
   dbPort: process.env.DB_PORT,
   dbConnectionLimit: process.env.DB_CONNECTION_LIMIT,
   dbQueueLimit: process.env.DB_QUEUE_LIMIT ?? 0,
+  skinApi: process.env.SKIN_API,
 };
 
 function checkConfig(config) {
