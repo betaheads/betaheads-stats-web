@@ -20,6 +20,12 @@ fs.copyFileSync(
   path.resolve(__dirname, '..', 'public', 'bootstrap', 'css', 'bootstrap.min.css')
 );
 
+
+fs.copyFileSync(
+  path.resolve(__dirname, '..', 'node_modules', 'bootstrap', 'dist', 'css', 'bootstrap.min.css.map'),
+  path.resolve(__dirname, '..', 'public', 'bootstrap', 'css', 'bootstrap.min.css.map')
+);
+
 fs.copyFileSync(
   path.resolve(__dirname, '..', 'node_modules', 'bootstrap', 'dist', 'js', 'bootstrap.min.js'),
   path.resolve(__dirname, '..', 'public', 'bootstrap', 'js', 'bootstrap.min.js')

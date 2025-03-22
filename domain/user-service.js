@@ -9,7 +9,7 @@ async function getUserFullStats(username) {
     throw new LocalError(400, 'Wrong minecraft username');
   }
 
-  const userStats = await getUserFullStatsData(username);
+  const userStats = await getUserFullStatsData(username.toLowerCase());
 
   if (userStats === null) {
     throw new LocalError(404, 'User not found');

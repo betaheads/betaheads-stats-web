@@ -1,6 +1,8 @@
 const internalErrorMessage = 'Internal server error';
 
 function globalErrorMiddleware(err, req, res, next) {
+  console.log(err);
+
   let message = err?.message ?? '';
   let status = err?.status ?? 500;
 
@@ -20,9 +22,9 @@ function globalErrorMiddleware(err, req, res, next) {
 }
 
 function errorHandler(func) {
-  return (req, res, next) => {
+  return async (req, res, next) => {
     try {
-      func(req, res, next);
+      await func(req, res, next);
     } catch (error) {
       console.error(error);
 

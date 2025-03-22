@@ -14,6 +14,7 @@ async function getUserFullStatsData(username) {
       LEFT JOIN block_stats bs ON u.id = bs.user_id
       WHERE u.name = ?
       GROUP BY bs.block
+      ORDER BY bs.block ASC
     `,
     [username]
   );

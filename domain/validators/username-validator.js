@@ -1,5 +1,5 @@
 function isValidMinecraftUsername(username) {
-  if (username.length < 3 || username.length > 42) {
+  if (username.length < 3 || username.length > 40) {
     return false;
   }
 

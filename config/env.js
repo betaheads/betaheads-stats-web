@@ -10,6 +10,8 @@ const config = {
   dbConnectionLimit: process.env.DB_CONNECTION_LIMIT,
   dbQueueLimit: process.env.DB_QUEUE_LIMIT ?? 0,
   skinApi: process.env.SKIN_API,
+  domain: process.env.DOMAIN,
+  sessionSecret: process.env.SESSION_SECRET,
 };
 
 function checkConfig(config) {
