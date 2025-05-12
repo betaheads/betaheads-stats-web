@@ -18,7 +18,7 @@ function formatMillis(millis) {
     result.push(`${seconds} sec`);
   }
 
-  return result.join(', ');
+  return result.join(' ');
 }
 
 module.exports = { formatMillis };

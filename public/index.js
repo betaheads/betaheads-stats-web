@@ -1,7 +1,8 @@
 //number formatting script
 
+// "1234567" -> "1 234 567"
 function formatNumber(number) {
-  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+  return Number(number).toLocaleString('ru-RU');
 }
 
 const numberElements = document.getElementsByClassName('number');
