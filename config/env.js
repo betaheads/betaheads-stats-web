@@ -12,6 +12,7 @@ const config = {
   skinApi: process.env.SKIN_API,
   domain: process.env.DOMAIN,
   sessionSecret: process.env.SESSION_SECRET,
+  basePath: process.env.BASE_PATH ?? '/stats',
 };
 
 function checkConfig(config) {

@@ -18,12 +18,14 @@ const { leaderboardRouter } = require('./routes/leaderboard-router');
 
 const httpPort = config.httpPort;
 
+app.locals.basePath = config.basePath;
+
 app.engine('.hbs', engine({ extname: '.hbs' }));
 app.set('view engine', '.hbs');
 app.set('views', './views');
 
 app.use(morgan('common'));
-app.use(express.static(path.resolve(__dirname, 'public')));
+app.use(app.locals.basePath + '/static', express.static(path.resolve(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -70,21 +72,21 @@ app.use(csrfProtection);
 // ---------
 // Routes
 // ---------
-app.use(playerRouter);
-app.use(leaderboardRouter);
+app.use(app.locals.basePath, playerRouter);
+app.use(app.locals.basePath, leaderboardRouter);
 
-app.get('/', (req, res) => {
+app.get(app.locals.basePath + '/', (req, res) => {
   res.render('home');
 });
 
 app.get(
-  '*',
+  app.locals.basePath + '/*',
   errorHandler(() => {
     throw new LocalError(404, 'Page not found');
   })
 );
 
-app.use(globalErrorMiddleware);
+app.use(app.locals.basePath, globalErrorMiddleware);
 
 app.listen(httpPort, () => {
   console.log(`Server listen: http://localhost:${httpPort}`);

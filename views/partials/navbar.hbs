@@ -11,20 +11,20 @@
       </button>
 
 
-      <a class="navbar-brand" href="#">
-        <img alt="Brand" style="width: 2rem; height: 2rem;" src="/images/Fire.gif">
+      <a class="navbar-brand" href="{{basePath}}/leaderboard">
+        <img alt="Brand" style="width: 2rem; height: 2rem;" src="{{basePath}}/static/images/Fire.gif">
       </a>
-      <a class="navbar-brand" href="/leaderboard">Betaheads stats</a>
+      <a class="navbar-brand" href="{{basePath}}/leaderboard">Betaheads stats</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="{{#if tabLeaderboard}}active{{/if}}"><a href="/leaderboard">Leaderboard</span></a>
+        <li class="{{#if tabLeaderboard}}active{{/if}}"><a href="{{basePath}}/leaderboard">Leaderboard</span></a>
         </li>
         {{!-- <li class="{{#if tabServerTotal}}active{{/if}}"><a href="#">Server total</a>
         </li> --}}
-        <li class="{{#if tabPlayers}}active{{/if}}"><a href="/players">Players</a>
+        <li class="{{#if tabPlayers}}active{{/if}}"><a href="{{basePath}}/players">Players</a>
         </li>
       </ul>
       {{> players-search-form}}
