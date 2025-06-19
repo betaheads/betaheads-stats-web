@@ -16,3 +16,11 @@
 .bh-mt-1 {
   margin-top: 1rem;
 }
+
+.bh-w-fit-content {
+  width: fit-content !important;
+}
+
+.bh-min-w-33p {
+  min-width: 33.33333333%;
+}

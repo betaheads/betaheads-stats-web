@@ -1,0 +1,28 @@
+<div class="bh-center bh-mx-1">
+  <div class="bh-container">
+    <h1>Top 100 players by playtime</h1>
+  </div>
+  <div class="panel panel-default bh-container bh-mt-1">
+    <div class="panel-heading">Leaderboard</div>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Player</th>
+          <th>Playtime</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each leaderboard}}
+        <tr>
+          <td class="number"> {{number}}</td>
+          <td>
+            <a href="/player/{{name}}">{{name}}</a>
+          </td>
+          <td>{{played_ms}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>

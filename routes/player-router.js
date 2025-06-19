@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { getUserFullStats } = require('../domain/user-service');
+const { getUserFullStats, getPlayersList } = require('../domain/user-service');
 const { errorHandler } = require('../middlewares/error-handler');
 
 const playerRouter = Router();
@@ -12,6 +12,31 @@ playerRouter.get(
     const userStats = await getUserFullStats(username);
 
     res.render('player', userStats);
+  })
+);
+
+playerRouter.get(
+  '/players',
+  errorHandler(async (req, res) => {
+    const search = req?.query?.s ?? '';
+
+    if (search?.length < 3) {
+    }
+
+    try {
+      const playersList = await getPlayersList({ search });
+
+      res.render('players-list', { playersList });
+    } catch (error) {
+      if (error?.validation === true) {
+        res.render('players-search', { message: error.message });
+        return;
+      }
+
+      console.error('/players', error);
+
+      throw error;
+    }
   })
 );
 

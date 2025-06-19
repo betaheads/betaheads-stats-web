@@ -1,0 +1,29 @@
+<div class="bh-center">
+  <h1>Search players</h1>
+
+  {{> players-search-form}}
+  {{#if playersList}}
+  <div class="bh-container bh-mt-1">
+    <div class="panel panel-default">
+
+      <div class="panel-heading">Players</div>
+      <ul class="list-group">
+
+        {{#each playersList}}
+        <li class="list-group-item">
+          <a href="/player/{{playerName}}">{{playerName}}</a>
+        </li>
+        {{/each}}
+
+      </ul>
+
+    </div>
+  </div>
+  <p>(first 20 players by your request)</p>
+  {{else}}
+
+  <h2>No results</h2>
+  {{/if}}
+
+
+</div>

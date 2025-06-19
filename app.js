@@ -14,6 +14,7 @@ const app = express();
 
 const config = require('./config/env');
 const { playerRouter } = require('./routes/player-router');
+const { leaderboardRouter } = require('./routes/leaderboard-router');
 
 const httpPort = config.httpPort;
 
@@ -21,7 +22,7 @@ app.engine('.hbs', engine({ extname: '.hbs' }));
 app.set('view engine', '.hbs');
 app.set('views', './views');
 
-app.use(morgan('combined'));
+app.use(morgan('common'));
 app.use(express.static(path.resolve(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -70,6 +71,7 @@ app.use(csrfProtection);
 // Routes
 // ---------
 app.use(playerRouter);
+app.use(leaderboardRouter);
 
 app.get('/', (req, res) => {
   res.render('home');

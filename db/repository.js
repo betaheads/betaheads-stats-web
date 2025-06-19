@@ -5,6 +5,7 @@ async function getUserFullStatsData(username) {
   const [results] = await db.query(
     `
       SELECT
+        u.display_name,
         u.name,
         u.played_ms,
         bs.block,
@@ -24,9 +25,10 @@ async function getUserFullStatsData(username) {
   }
 
   const playedMs = results[0]?.played_ms ?? 0;
-  const playername = results[0].name;
+  const playername = results[0]?.display_name ?? results[0].name;
+
   const blockStats = results.map((row) => ({
-    block: toReadableName(row.block),
+    block: toReadableName(row?.block ?? ''),
     breakCount: row.break_count,
     placeCount: row.place_count,
   }));
@@ -43,4 +45,38 @@ async function getUserFullStatsData(username) {
   };
 }
 
-module.exports = { getUserFullStatsData };
+async function getLeaderboardData() {
+  const [results] = await db.query(
+    `
+      SELECT
+        ROW_NUMBER() OVER (ORDER BY users.played_ms DESC) AS number,
+        users.name,
+        users.display_name,
+        users.played_ms
+      FROM users
+      ORDER BY users.played_ms DESC
+      LIMIT 100
+    `
+  );
+
+  return results;
+}
+
+async function getPlayersListData({ search }) {
+  const [results] = await db.query(
+    `
+      SELECT
+        COALESCE(users.display_name, users.name) as playerName,
+        users.name
+      FROM users
+      WHERE users.name LIKE ?
+      ORDER BY users.name ASC
+      LIMIT 20
+    `,
+    [`${search}%`]
+  );
+
+  return results;
+}
+
+module.exports = { getUserFullStatsData, getLeaderboardData, getPlayersListData };
