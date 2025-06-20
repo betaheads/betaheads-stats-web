@@ -21,6 +21,6 @@
   width: fit-content !important;
 }
 
-.bh-min-w-33p {
-  min-width: 33.33333333%;
+.bh-min-w-150px {
+  min-width: 150px;
 }
