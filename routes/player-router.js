@@ -26,10 +26,10 @@ playerRouter.get(
     try {
       const playersList = await getPlayersList({ search });
 
-      res.render('players-list', { playersList });
+      res.render('players-list', { playersList, tabPlayers: true });
     } catch (error) {
       if (error?.validation === true) {
-        res.render('players-search', { message: error.message });
+        res.render('players-search', { message: error.message, tabPlayers: true });
         return;
       }
 
