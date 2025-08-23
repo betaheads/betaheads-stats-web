@@ -2,23 +2,38 @@ const { toReadableName } = require('../domain/formatters/block-name-formatter');
 const db = require('./database');
 
 async function getUserFullStatsData(username) {
-  const [results] = await db.query(
-    `
-      SELECT
-        u.display_name,
-        u.name,
-        u.played_ms,
-        bs.block,
-        SUM(CASE WHEN bs.action = 'BREAK' THEN bs.count ELSE 0 END) AS break_count,
-        SUM(CASE WHEN bs.action = 'PLACE' THEN bs.count ELSE 0 END) AS place_count
-      FROM users u
-      LEFT JOIN block_stats bs ON u.id = bs.user_id
-      WHERE u.name = ?
-      GROUP BY bs.block
-      ORDER BY bs.block ASC
-    `,
-    [username]
-  );
+  const queries = [
+    db.query(
+      `
+        SELECT
+          u.display_name,
+          u.name,
+          u.played_ms,
+          bs.block,
+          SUM(CASE WHEN bs.action = 'BREAK' THEN bs.count ELSE 0 END) AS break_count,
+          SUM(CASE WHEN bs.action = 'PLACE' THEN bs.count ELSE 0 END) AS place_count
+        FROM users u
+        LEFT JOIN block_stats bs ON u.id = bs.user_id
+        WHERE u.name = ?
+        GROUP BY bs.block
+        ORDER BY bs.block ASC
+      `,
+      [username]
+    ),
+    db.query(
+      `
+        SELECT
+          stats.activity as activity,
+          stats.count as count
+        FROM users u
+        LEFT JOIN activity_stats stats ON u.id = stats.user_id
+        WHERE u.name = ?
+      `,
+      [username]
+    ),
+  ];
+
+  const [[results], [activityStats]] = await Promise.all(queries);
 
   if (results.length === 0) {
     return null;
@@ -36,12 +51,19 @@ async function getUserFullStatsData(username) {
   const totalBreak = results.reduce((sum, row) => sum + parseInt(row.break_count), 0);
   const totalPlace = results.reduce((sum, row) => sum + parseInt(row.place_count), 0);
 
+  const activityMap = new Map();
+  activityStats.forEach((row) => {
+    activityMap.set(row.activity, row.count);
+  });
+
   return {
     username: playername,
     playedMs,
     totalBreak,
     totalPlace,
     blockStats,
+    fishCaught: activityMap.get('FISH_CAUGHT') ?? 0,
+    shearedSheeps: activityMap.get('SHEAR_SHEEP') ?? 0,
   };
 }
 
