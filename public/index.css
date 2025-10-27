@@ -72,6 +72,12 @@
     background-color: #c9d1d9;
   }
 
+  .navbar-default .navbar-toggle:hover,
+  .navbar-default .navbar-toggle:focus,
+  .navbar-default .navbar-toggle:active {
+    background-color: #21262d;
+  }
+
   .panel {
     background-color: #161b22;
   }
