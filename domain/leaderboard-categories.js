@@ -1,4 +1,5 @@
 const { getDistinctBlocksData } = require('../db/repository');
+const { getBlockIconUrl } = require('./block-icons');
 const { toReadableName } = require('./formatters/block-name-formatter');
 const { activities, activityTypes, userFields } = require('./stats-config');
 const { cachedByKey } = require('./ttl-cache');
@@ -53,12 +54,14 @@ async function getCategoryGroups() {
 
   blocks.forEach((block) => {
     const readableBlock = toReadableName(block);
+    const icon = getBlockIconUrl(block);
 
     blockItems.push({
       slug: titleToSlug(`${readableBlock} placed`),
       title: `${readableBlock} placed`,
       kind: 'block',
       params: { block, action: 'PLACE' },
+      icon,
     });
 
     blockItems.push({
@@ -66,6 +69,7 @@ async function getCategoryGroups() {
       title: `${readableBlock} broken`,
       kind: 'block',
       params: { block, action: 'BREAK' },
+      icon,
     });
   });
 

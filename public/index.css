@@ -275,6 +275,15 @@ tr[data-href] {
   cursor: pointer;
 }
 
+.bh-block-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  image-rendering: pixelated;
+  vertical-align: text-bottom;
+  margin-right: 6px;
+}
+
 /* Dark theme extras that have no light equivalent */
 @media (prefers-color-scheme: dark) {
   .alert-danger {

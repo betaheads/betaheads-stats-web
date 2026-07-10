@@ -67,7 +67,10 @@
       <tbody>
         {{#each blockStats}}
         <tr>
-          <td>{{block}}</td>
+          <td>
+            {{~#if icon}}<img class="bh-block-icon" src="{{../basePath}}{{icon}}" alt="">{{else}}<span class="bh-block-icon"></span>{{/if~}}
+            {{~block~}}
+          </td>
           <td>{{placeCount}}</td>
           <td>{{breakCount}}</td>
         </tr>
