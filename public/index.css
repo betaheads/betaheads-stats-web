@@ -266,6 +266,15 @@ a:active {
   line-height: 1.5;
 }
 
+/* Two-column stat tables: fixed first column so all panels align the same */
+.bh-stats-table > tbody > tr > td:first-child {
+  width: 50%;
+}
+
+tr[data-href] {
+  cursor: pointer;
+}
+
 /* Dark theme extras that have no light equivalent */
 @media (prefers-color-scheme: dark) {
   .alert-danger {
