@@ -3,10 +3,11 @@ const { getUserFullStatsData } = require('../db/repository');
 const { getPlayersListData } = require('../db/repository');
 
 const { LocalError } = require('../middlewares/error-handler');
+const { getBlockIconClass } = require('./block-icons');
 const { formatDate } = require('./formatters/format-date');
 const { formatNumber } = require('./formatters/format-number');
 const { formatStatValue } = require('./formatters/format-stat-value');
-const { getActivityGroups, userFields } = require('./stats-config');
+const { getActivitiesByType, getActivityGroups, userFields } = require('./stats-config');
 const { isValidMinecraftUsername } = require('./validators/username-validator');
 
 async function getUserFullStats(username) {
@@ -27,9 +28,15 @@ async function getUserFullStats(username) {
       : formatStatValue(userStats.userFields[field.name], field.unit),
   }));
 
+  const totalDeaths = getActivitiesByType('DEATH').reduce(
+    (sum, activity) => sum + Number(userStats.activityCounts.get(activity.name) ?? 0),
+    0
+  );
+
   overallStats.push(
     { title: 'Total blocks placed', value: formatNumber(userStats.totalPlace) },
-    { title: 'Total blocks broken', value: formatNumber(userStats.totalBreak) }
+    { title: 'Total blocks broken', value: formatNumber(userStats.totalBreak) },
+    { title: 'Total deaths', value: formatNumber(totalDeaths) }
   );
 
   const activityGroups = getActivityGroups().map((group) => ({
@@ -42,6 +49,7 @@ async function getUserFullStats(username) {
 
   const blockStats = userStats.blockStats.map((row) => ({
     block: row.block,
+    iconClass: getBlockIconClass(row.material),
     breakCount: formatNumber(row.breakCount),
     placeCount: formatNumber(row.placeCount),
   }));

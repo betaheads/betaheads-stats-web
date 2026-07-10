@@ -1,0 +1,386 @@
+{
+  "STONE": {
+    "x": 32,
+    "y": 0
+  },
+  "GRASS": {
+    "x": 416,
+    "y": 416
+  },
+  "DIRT": {
+    "x": 224,
+    "y": 576
+  },
+  "COBBLESTONE": {
+    "x": 768,
+    "y": 448
+  },
+  "WOOD": {
+    "x": 192,
+    "y": 32
+  },
+  "SAPLING": {
+    "x": 800,
+    "y": 704
+  },
+  "BEDROCK": {
+    "x": 416,
+    "y": 800
+  },
+  "WATER": {
+    "x": 832,
+    "y": 288
+  },
+  "STATIONARY_WATER": {
+    "x": 832,
+    "y": 288
+  },
+  "LAVA": {
+    "x": 64,
+    "y": 64
+  },
+  "STATIONARY_LAVA": {
+    "x": 64,
+    "y": 64
+  },
+  "SAND": {
+    "x": 0,
+    "y": 160
+  },
+  "GRAVEL": {
+    "x": 224,
+    "y": 96
+  },
+  "GOLD_ORE": {
+    "x": 256,
+    "y": 0
+  },
+  "IRON_ORE": {
+    "x": 96,
+    "y": 256
+  },
+  "COAL_ORE": {
+    "x": 320,
+    "y": 96
+  },
+  "LOG": {
+    "x": 32,
+    "y": 352
+  },
+  "LEAVES": {
+    "x": 416,
+    "y": 0
+  },
+  "SPONGE": {
+    "x": 32,
+    "y": 416
+  },
+  "GLASS": {
+    "x": 448,
+    "y": 0
+  },
+  "LAPIS_ORE": {
+    "x": 448,
+    "y": 352
+  },
+  "LAPIS_BLOCK": {
+    "x": 256,
+    "y": 448
+  },
+  "DISPENSER": {
+    "x": 32,
+    "y": 480
+  },
+  "SANDSTONE": {
+    "x": 768,
+    "y": 384
+  },
+  "NOTE_BLOCK": {
+    "x": 512,
+    "y": 288
+  },
+  "BED_BLOCK": {
+    "x": 544,
+    "y": 480
+  },
+  "POWERED_RAIL": {
+    "x": 320,
+    "y": 544
+  },
+  "DETECTOR_RAIL": {
+    "x": 576,
+    "y": 96
+  },
+  "PISTON_STICKY_BASE": {
+    "x": 576,
+    "y": 448
+  },
+  "WEB": {
+    "x": 320,
+    "y": 576
+  },
+  "LONG_GRASS": {
+    "x": 608,
+    "y": 96
+  },
+  "DEAD_BUSH": {
+    "x": 608,
+    "y": 64
+  },
+  "PISTON_BASE": {
+    "x": 256,
+    "y": 608
+  },
+  "PISTON_EXTENSION": {
+    "x": 608,
+    "y": 608
+  },
+  "PISTON_MOVING_PIECE": {
+    "x": 608,
+    "y": 608
+  },
+  "WOOL": {
+    "x": 640,
+    "y": 416
+  },
+  "YELLOW_FLOWER": {
+    "x": 96,
+    "y": 672
+  },
+  "RED_ROSE": {
+    "x": 448,
+    "y": 672
+  },
+  "BROWN_MUSHROOM": {
+    "x": 736,
+    "y": 256
+  },
+  "RED_MUSHROOM": {
+    "x": 64,
+    "y": 736
+  },
+  "GOLD_BLOCK": {
+    "x": 416,
+    "y": 736
+  },
+  "IRON_BLOCK": {
+    "x": 768,
+    "y": 0
+  },
+  "DOUBLE_STEP": {
+    "x": 768,
+    "y": 352
+  },
+  "STEP": {
+    "x": 160,
+    "y": 768
+  },
+  "BRICK": {
+    "x": 768,
+    "y": 480
+  },
+  "TNT": {
+    "x": 800,
+    "y": 64
+  },
+  "BOOKSHELF": {
+    "x": 800,
+    "y": 96
+  },
+  "MOSSY_COBBLESTONE": {
+    "x": 800,
+    "y": 128
+  },
+  "OBSIDIAN": {
+    "x": 800,
+    "y": 160
+  },
+  "TORCH": {
+    "x": 800,
+    "y": 384
+  },
+  "FIRE": {
+    "x": 800,
+    "y": 416
+  },
+  "MOB_SPAWNER": {
+    "x": 800,
+    "y": 448
+  },
+  "WOOD_STAIRS": {
+    "x": 800,
+    "y": 480
+  },
+  "CHEST": {
+    "x": 256,
+    "y": 224
+  },
+  "LOCKED_CHEST": {
+    "x": 256,
+    "y": 224
+  },
+  "REDSTONE_WIRE": {
+    "x": 800,
+    "y": 544
+  },
+  "DIAMOND_ORE": {
+    "x": 800,
+    "y": 576
+  },
+  "DIAMOND_BLOCK": {
+    "x": 800,
+    "y": 608
+  },
+  "WORKBENCH": {
+    "x": 800,
+    "y": 640
+  },
+  "CROPS": {
+    "x": 800,
+    "y": 672
+  },
+  "SOIL": {
+    "x": 96,
+    "y": 800
+  },
+  "FURNACE": {
+    "x": 128,
+    "y": 800
+  },
+  "BURNING_FURNACE": {
+    "x": 160,
+    "y": 800
+  },
+  "SIGN_POST": {
+    "x": 32,
+    "y": 608
+  },
+  "WOODEN_DOOR": {
+    "x": 64,
+    "y": 608
+  },
+  "LADDER": {
+    "x": 256,
+    "y": 800
+  },
+  "RAILS": {
+    "x": 288,
+    "y": 800
+  },
+  "COBBLESTONE_STAIRS": {
+    "x": 320,
+    "y": 800
+  },
+  "WALL_SIGN": {
+    "x": 32,
+    "y": 608
+  },
+  "LEVER": {
+    "x": 384,
+    "y": 800
+  },
+  "STONE_PLATE": {
+    "x": 448,
+    "y": 800
+  },
+  "IRON_DOOR_BLOCK": {
+    "x": 288,
+    "y": 608
+  },
+  "WOOD_PLATE": {
+    "x": 512,
+    "y": 800
+  },
+  "REDSTONE_ORE": {
+    "x": 544,
+    "y": 800
+  },
+  "GLOWING_REDSTONE_ORE": {
+    "x": 544,
+    "y": 800
+  },
+  "REDSTONE_TORCH_OFF": {
+    "x": 608,
+    "y": 800
+  },
+  "REDSTONE_TORCH_ON": {
+    "x": 640,
+    "y": 800
+  },
+  "STONE_BUTTON": {
+    "x": 672,
+    "y": 800
+  },
+  "SNOW": {
+    "x": 704,
+    "y": 800
+  },
+  "ICE": {
+    "x": 736,
+    "y": 800
+  },
+  "SNOW_BLOCK": {
+    "x": 704,
+    "y": 800
+  },
+  "CACTUS": {
+    "x": 832,
+    "y": 0
+  },
+  "CLAY": {
+    "x": 832,
+    "y": 32
+  },
+  "SUGAR_CANE_BLOCK": {
+    "x": 832,
+    "y": 64
+  },
+  "JUKEBOX": {
+    "x": 832,
+    "y": 96
+  },
+  "FENCE": {
+    "x": 832,
+    "y": 128
+  },
+  "PUMPKIN": {
+    "x": 832,
+    "y": 160
+  },
+  "NETHERRACK": {
+    "x": 832,
+    "y": 192
+  },
+  "SOUL_SAND": {
+    "x": 832,
+    "y": 224
+  },
+  "GLOWSTONE": {
+    "x": 832,
+    "y": 256
+  },
+  "PORTAL": {
+    "x": 832,
+    "y": 320
+  },
+  "JACK_O_LANTERN": {
+    "x": 832,
+    "y": 352
+  },
+  "CAKE_BLOCK": {
+    "x": 832,
+    "y": 384
+  },
+  "DIODE_BLOCK_OFF": {
+    "x": 832,
+    "y": 416
+  },
+  "DIODE_BLOCK_ON": {
+    "x": 832,
+    "y": 448
+  },
+  "TRAP_DOOR": {
+    "x": 160,
+    "y": 832
+  }
+}

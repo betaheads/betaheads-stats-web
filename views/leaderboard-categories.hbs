@@ -8,7 +8,8 @@
     <div class="panel-heading">{{title}}</div>
     <div class="panel-body bh-link-grid">
       {{#each items}}
-      <a href="{{../../basePath}}/leaderboard/{{slug}}">{{title}}</a>
+      <a href="{{../../basePath}}/leaderboard/{{slug}}">{{#if iconClass}}<span
+          class="bh-block-icon {{iconClass}}"></span>{{/if}}{{title}}</a>
       {{/each}}
     </div>
   </div>

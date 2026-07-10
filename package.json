@@ -25,7 +25,8 @@
     "dev": "nodemon app",
     "start": "node app",
     "build": "npm run copy-bootstrap",
-    "copy-bootstrap": "node scripts/copy-bootstrap"
+    "copy-bootstrap": "node scripts/copy-bootstrap",
+    "generate-block-icons-css": "node scripts/generate-block-icons-css"
   },
   "author": "mishavolkov"
 }
