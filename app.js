@@ -15,6 +15,7 @@ const app = express();
 const config = require('./config/env');
 const { playerRouter } = require('./routes/player-router');
 const { leaderboardRouter } = require('./routes/leaderboard-router');
+const { serverTotalRouter } = require('./routes/server-total-router');
 
 const httpPort = config.httpPort;
 
@@ -74,6 +75,7 @@ app.use(csrfProtection);
 // ---------
 app.use(app.locals.basePath, playerRouter);
 app.use(app.locals.basePath, leaderboardRouter);
+app.use(app.locals.basePath, serverTotalRouter);
 
 app.get(app.locals.basePath + '/', (req, res) => {
   res.render('home');
