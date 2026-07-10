@@ -1,12 +1,12 @@
 function formatDate(value) {
   if (!value) {
-    return '—';
+    return '-';
   }
 
   const date = new Date(value);
 
   if (isNaN(date.getTime())) {
-    return '—';
+    return '-';
   }
 
   return date.toISOString().slice(0, 16).replace('T', ' ') + ' UTC';
