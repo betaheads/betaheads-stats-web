@@ -1,6 +1,6 @@
 <div class="bh-center bh-mx-1">
   <div class="bh-container">
-    <h1>Top 100 players by playtime</h1>
+    <h1>Top 100 players by {{title}}</h1>
     <p><a href="{{basePath}}/leaderboard/categories">Other categories</a></p>
   </div>
   <div class="panel panel-default bh-container bh-mt-1">
@@ -10,17 +10,17 @@
         <tr>
           <th>#</th>
           <th>Player</th>
-          <th>Playtime</th>
+          <th>{{title}}</th>
         </tr>
       </thead>
       <tbody>
         {{#each leaderboard}}
         <tr data-href="{{../basePath}}/player/{{name}}">
-          <td class="number"> {{number}}</td>
+          <td>{{number}}</td>
           <td>
             <a href="{{../basePath}}/player/{{name}}">{{name}}</a>
           </td>
-          <td>{{played_ms}}</td>
+          <td>{{value}}</td>
         </tr>
         {{/each}}
       </tbody>

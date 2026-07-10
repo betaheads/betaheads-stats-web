@@ -22,32 +22,36 @@
 <div class="bh-center bh-mx-1">
   <div class="panel panel-default bh-container">
     <div class="panel-heading">Overall statistics</div>
-    <table class="table table-hover">
+    <table class="table table-hover bh-stats-table">
       <tbody>
+        {{#each overallStats}}
         <tr>
-          <td><b>Total playtime</b></td>
-          <td>{{played}}</td>
+          <td><b>{{title}}</b></td>
+          <td>{{value}}</td>
         </tr>
-        <tr>
-          <td><b>Total blocks placed</b></td>
-          <td class="number">{{totalPlace}}</td>
-        </tr>
-        <tr>
-          <td><b>Total blocks broken</b></td>
-          <td class="number">{{totalBreak}}</td>
-        </tr>
-        <tr>
-          <td><b>Sheared sheeps</b></td>
-          <td class="number">{{shearedSheeps}}</td>
-        </tr>
-        <tr>
-          <td><b>Fish caught</b></td>
-          <td class="number">{{fishCaught}}</td>
-        </tr>
+        {{/each}}
       </tbody>
     </table>
   </div>
 </div>
+
+{{#each activityGroups}}
+<div class="bh-center bh-mx-1">
+  <div class="panel panel-default bh-container">
+    <div class="panel-heading">{{title}}</div>
+    <table class="table table-hover bh-stats-table">
+      <tbody>
+        {{#each rows}}
+        <tr>
+          <td><b>{{title}}</b></td>
+          <td>{{value}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
+{{/each}}
 
 <div class="bh-center bh-mx-1">
   <div class="panel panel-default bh-container">
@@ -63,12 +67,11 @@
       <tbody>
         {{#each blockStats}}
         <tr>
-          <td>{{block}}</td>
-          <td class="number">{{placeCount}}</td>
-          <td class="number">{{breakCount}}</td>
+          <td><span class="bh-block-icon {{iconClass}}"></span>{{block}}</td>
+          <td>{{placeCount}}</td>
+          <td>{{breakCount}}</td>
         </tr>
         {{/each}}
-        </tr>
       </tbody>
     </table>
   </div>

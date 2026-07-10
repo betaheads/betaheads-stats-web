@@ -1,0 +1,40 @@
+<div class="bh-center bh-mx-1">
+  <div class="bh-container">
+    <h1>Server total</h1>
+    <p>Statistics collected across all players. Updated every 10 minutes.</p>
+  </div>
+</div>
+
+<div class="bh-center bh-mx-1">
+  <div class="panel panel-default bh-container">
+    <div class="panel-heading">Overall statistics</div>
+    <table class="table table-hover bh-stats-table">
+      <tbody>
+        {{#each overallStats}}
+        <tr>
+          <td><b>{{title}}</b></td>
+          <td>{{value}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{{#each activityGroups}}
+<div class="bh-center bh-mx-1">
+  <div class="panel panel-default bh-container">
+    <div class="panel-heading">{{title}}</div>
+    <table class="table table-hover bh-stats-table">
+      <tbody>
+        {{#each rows}}
+        <tr>
+          <td><b>{{title}}</b></td>
+          <td>{{value}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
+{{/each}}

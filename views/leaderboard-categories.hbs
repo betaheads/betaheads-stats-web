@@ -1,0 +1,17 @@
+<div class="bh-center bh-mx-1">
+  <div class="bh-container">
+    <h1>Leaderboard categories</h1>
+    <p>Pick a category to see the top 100 players ranked by it.</p>
+  </div>
+  {{#each categoryGroups}}
+  <div class="panel panel-default bh-container bh-mt-1">
+    <div class="panel-heading">{{title}}</div>
+    <div class="panel-body bh-link-grid">
+      {{#each items}}
+      <a href="{{../../basePath}}/leaderboard/{{slug}}">{{#if iconClass}}<span
+          class="bh-block-icon {{iconClass}}"></span>{{/if}}{{title}}</a>
+      {{/each}}
+    </div>
+  </div>
+  {{/each}}
+</div>
