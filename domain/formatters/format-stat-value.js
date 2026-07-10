@@ -12,7 +12,7 @@ function formatStatValue(value, unit) {
     case 'meters':
       return `${formatNumber(number)} m`;
     case 'half_hearts':
-      return `${formatNumber(number / 2)} ❤`;
+      return `${formatNumber(number)}`;
     default:
       return formatNumber(number);
   }

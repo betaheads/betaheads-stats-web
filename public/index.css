@@ -66,7 +66,6 @@ a:active {
   background-color: var(--background-color);
   border: none;
   border-bottom: 1px solid var(--color-gray-20);
-  border-radius: 0;
 }
 
 .navbar-default .navbar-brand {
@@ -123,7 +122,6 @@ a:active {
 .panel-default {
   background-color: var(--background-color-elevated);
   border-color: var(--color-gray-20);
-  border-radius: 0;
   box-shadow: none;
 }
 
@@ -184,7 +182,6 @@ a:active {
 .thumbnail {
   background-color: var(--background-color-elevated);
   border-color: var(--color-gray-20);
-  border-radius: 0;
 }
 
 .caption,
@@ -197,7 +194,6 @@ a:active {
   background-color: var(--background-color);
   border-color: var(--color-gray-20);
   color: var(--text-color);
-  border-radius: 0;
   box-shadow: none;
 }
 
@@ -216,7 +212,6 @@ a:active {
   background-color: var(--background-color-muted);
   border-color: var(--color-gray-20);
   color: var(--text-color);
-  border-radius: 0;
 }
 
 .btn-default:hover,
