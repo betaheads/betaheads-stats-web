@@ -1,7 +1,7 @@
 const { getServerTotalsData } = require('../db/repository');
 const { formatNumber } = require('./formatters/format-number');
 const { formatStatValue } = require('./formatters/format-stat-value');
-const { getActivitiesByType, getActivityGroups } = require('./stats-config');
+const { getActivityGroups } = require('./stats-config');
 const { cachedByKey } = require('./ttl-cache');
 
 // The page aggregates the whole users/block_stats/activity_stats tables,
@@ -13,18 +13,12 @@ const getCachedServerTotals = cachedByKey(SERVER_TOTALS_CACHE_TTL_MS, getServerT
 async function getServerTotal() {
   const totals = await getCachedServerTotals();
 
-  const totalDeaths = getActivitiesByType('DEATH').reduce(
-    (sum, activity) => sum + Number(totals.activityTotals.get(activity.name) ?? 0),
-    0
-  );
-
   const overallStats = [
     { title: 'Players', value: formatNumber(totals.players) },
     { title: 'Total playtime', value: formatStatValue(totals.playedMs, 'milliseconds') },
     { title: 'Logins count', value: formatNumber(totals.loginCount) },
     { title: 'Total blocks placed', value: formatNumber(totals.blockTotals.get('PLACE') ?? 0) },
     { title: 'Total blocks broken', value: formatNumber(totals.blockTotals.get('BREAK') ?? 0) },
-    { title: 'Total deaths', value: formatNumber(totalDeaths) },
   ];
 
   const activityGroups = getActivityGroups().map((group) => ({

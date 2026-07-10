@@ -49,7 +49,6 @@ async function getUserFullStatsData(username) {
   const blockStats = results
     .filter((row) => row.block !== null)
     .map((row) => ({
-      material: row.block,
       block: toReadableName(row?.block ?? ''),
       breakCount: row.break_count,
       placeCount: row.place_count,
