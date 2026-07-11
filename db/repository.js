@@ -167,6 +167,26 @@ async function getActivityLeaderboardData(activity) {
   return results;
 }
 
+async function getActivityTypeTotalLeaderboardData(type) {
+  const [results] = await db.query(
+    `
+      SELECT
+        u.name,
+        u.display_name,
+        SUM(stats.count) AS value
+      FROM activity_stats stats
+      JOIN users u ON u.id = stats.user_id
+      WHERE stats.type = ?
+      GROUP BY u.id, u.name, u.display_name
+      ORDER BY value DESC
+      LIMIT 100
+    `,
+    [type]
+  );
+
+  return results;
+}
+
 const USER_LEADERBOARD_FIELDS = ['played_ms', 'login_count'];
 
 async function getUserFieldLeaderboardData(field) {
@@ -262,6 +282,7 @@ module.exports = {
   getBlockTotalLeaderboardData,
   getBlockLeaderboardData,
   getActivityLeaderboardData,
+  getActivityTypeTotalLeaderboardData,
   getUserFieldLeaderboardData,
   getServerTotalsData,
 };
