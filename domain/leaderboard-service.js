@@ -3,6 +3,7 @@ const {
   getBlockTotalLeaderboardData,
   getBlockLeaderboardData,
   getActivityLeaderboardData,
+  getActivityTypeTotalLeaderboardData,
   getUserFieldLeaderboardData,
 } = require('../db/repository');
 const { LocalError } = require('../middlewares/error-handler');
@@ -33,6 +34,8 @@ function fetchCategoryRowsData(_slug, category) {
       return getBlockLeaderboardData(category.params.block, category.params.action);
     case 'activity':
       return getActivityLeaderboardData(category.params.activity);
+    case 'activity_type_total':
+      return getActivityTypeTotalLeaderboardData(category.params.type);
     default:
       throw new Error(`Unknown leaderboard category kind: ${category.kind}`);
   }

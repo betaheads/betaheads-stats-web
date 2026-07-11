@@ -76,18 +76,27 @@ async function getCategoryGroups() {
   groups.push({ title: 'Block statistics', items: blockItems });
 
   activityTypes.forEach((type) => {
-    groups.push({
-      title: type.title,
-      items: activities
-        .filter((activity) => activity.type === type.name)
-        .map((activity) => ({
-          slug: titleToSlug(activity.title),
-          title: activity.title,
-          kind: 'activity',
-          params: { activity: activity.name },
-          unit: activity.unit,
-        })),
-    });
+    const items = activities
+      .filter((activity) => activity.type === type.name)
+      .map((activity) => ({
+        slug: titleToSlug(activity.title),
+        title: activity.title,
+        kind: 'activity',
+        params: { activity: activity.name },
+        unit: activity.unit,
+      }));
+
+    // rank by the sum of every death cause, like Total blocks placed/broken
+    if (type.name === 'DEATH') {
+      items.unshift({
+        slug: titleToSlug('Total deaths'),
+        title: 'Total deaths',
+        kind: 'activity_type_total',
+        params: { type: 'DEATH' },
+      });
+    }
+
+    groups.push({ title: type.title, items });
   });
 
   return groups;
