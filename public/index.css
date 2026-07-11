@@ -61,6 +61,17 @@ a:active {
   color: var(--text-color-link-active);
 }
 
+/* Emphasised inline link (e.g. "Other categories") */
+.bh-link {
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.bh-link:hover,
+.bh-link:focus {
+  text-decoration: underline;
+}
+
 /* Navbar */
 .navbar-default {
   background-color: var(--background-color);
@@ -312,5 +323,10 @@ tr[data-href] {
   .navbar-collapse,
   .collapse {
     background-color: var(--background-color);
+  }
+
+  /* base link color equals body text in dark, so use the accent to read as a link */
+  .bh-link {
+    color: var(--text-color-link-active);
   }
 }
